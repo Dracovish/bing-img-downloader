@@ -1,10 +1,10 @@
-# Hyperf DEMO
+# Bing Img Downloader
 
 ## Feature
 
 Download image from `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1` daily.
 
-## Components
+## Used Components
 
 - Hyperf Crontab
 - Hyperf Filesystem
