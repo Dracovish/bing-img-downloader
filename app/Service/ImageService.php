@@ -44,6 +44,8 @@ class ImageService extends Service
                 $copyright = $image['copyright'];
                 $title = $image['title'];
                 $cdn = $this->getCdn($url);
+
+                dump($cdn);
             }
             // dump($ret);
         }

@@ -32,6 +32,7 @@
         "hyperf/dispatcher": "2.1.*",
         "hyperf/event": "2.1.*",
         "hyperf/exception-handler": "2.1.*",
+        "hyperf/filesystem": " 2.1.*",
         "hyperf/framework": "2.1.*",
         "hyperf/guzzle": "2.1.*",
         "hyperf/http-server": "2.1.*",
