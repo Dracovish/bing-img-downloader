@@ -6,6 +6,7 @@ Download image from `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1
 
 ## Components
 
-Hyperf Crontab
-Hyperf Filesystem
-Hyperf Database Migration
+- Hyperf Crontab
+- Hyperf Filesystem
+- Hyperf Database Migration
+- Hyperf Phar
