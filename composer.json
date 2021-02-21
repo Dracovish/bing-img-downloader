@@ -25,6 +25,7 @@
         "hyperf/config": "2.1.*",
         "hyperf/constants": "2.1.*",
         "hyperf/contract": "2.1.*",
+        "hyperf/crontab": "2.1.*",
         "hyperf/database": "2.1.*",
         "hyperf/db-connection": "2.1.*",
         "hyperf/di": "2.1.*",
