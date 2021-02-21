@@ -15,5 +15,4 @@ use HyperfX\Utils\Service;
 
 class ImageService extends Service
 {
-    
 }
