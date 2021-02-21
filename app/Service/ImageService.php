@@ -16,6 +16,7 @@ use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Arr;
 use Hyperf\Utils\Codec\Json;
 use HyperfX\Utils\Service;
+use League\Flysystem\Filesystem;
 
 class ImageService extends Service
 {
@@ -31,6 +32,12 @@ class ImageService extends Service
      */
     protected $dao;
 
+    /**
+     * @Inject
+     * @var Filesystem
+     */
+    protected $file;
+
     public function download()
     {
         $client = $this->factory->get();
@@ -43,23 +50,27 @@ class ImageService extends Service
                 $url = $image['url'];
                 $copyright = $image['copyright'];
                 $title = $image['title'];
-                $cdn = $this->getCdn($url);
-
-                $this->put($url, $cdn);
+                $cdn = $this->put($url);
             }
             // dump($ret);
         }
     }
 
-    public function put(string $url, string $cdn)
+    public function put(string $url): string
     {
+        $cdn = $this->getCdn($url);
+
         $client = $this->factory->get();
 
         $client->get($url, [
             'sink' => $sink = BASE_PATH . '/runtime/' . $cdn,
         ]);
 
-        var_dump($sink);
+        if (! $this->file->has($cdn)) {
+            $this->file->writeStream($cdn, fopen($sink, 'r+'));
+        }
+
+        return $cdn;
     }
 
     public function getCdn(string $url)

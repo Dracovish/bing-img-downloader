@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'default' => 'local',
+    'default' => 'qiniu',
     'storage' => [
         'local' => [
             'driver' => \Hyperf\Filesystem\Adapter\LocalAdapterFactory::class,
@@ -75,6 +75,7 @@ return [
             'bucket' => env('QINIU_BUCKET'),
             'domain' => env('QINBIU_DOMAIN'),
         ],
+        
         'cos' => [
             'driver' => \Hyperf\Filesystem\Adapter\CosAdapterFactory::class,
             'region' => env('COS_REGION'),
