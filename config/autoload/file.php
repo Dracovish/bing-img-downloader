@@ -75,7 +75,7 @@ return [
             'bucket' => env('QINIU_BUCKET'),
             'domain' => env('QINBIU_DOMAIN'),
         ],
-        
+
         'cos' => [
             'driver' => \Hyperf\Filesystem\Adapter\CosAdapterFactory::class,
             'region' => env('COS_REGION'),
