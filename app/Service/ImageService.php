@@ -38,7 +38,7 @@ class ImageService extends Service
      */
     protected $file;
 
-    public function download(bool $syncMysql = false)
+    public function download(bool $save = false, bool $upload = false, string $dir = null)
     {
         $client = $this->factory->get();
 
@@ -50,9 +50,8 @@ class ImageService extends Service
                 $url = $image['url'];
                 $copyright = $image['copyright'];
                 $title = $image['title'];
-                $cdn = $this->put($url);
-
-                if ($syncMysql) {
+                $cdn = $this->put($url, $upload, $dir);
+                if ($save) {
                     // 保存数据到数据库
                     $this->dao->create($title, $url, $cdn, $copyright);
                 }
@@ -60,17 +59,17 @@ class ImageService extends Service
         }
     }
 
-    public function put(string $url): string
+    public function put(string $url, bool $upload = false, string $dir = null): string
     {
         $cdn = $this->getCdn($url);
 
         $client = $this->factory->get();
 
         $client->get($url, [
-            'sink' => $sink = download_dir() . $cdn,
+            'sink' => $sink = download_dir($dir) . $cdn,
         ]);
 
-        if (! $this->file->has($cdn)) {
+        if ($upload && ! $this->file->has($cdn)) {
             $this->file->writeStream($cdn, fopen($sink, 'r+'));
         }
 

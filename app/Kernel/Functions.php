@@ -56,13 +56,16 @@ if (! function_exists('download_dir')) {
     /**
      * 返回下载目录.
      */
-    function download_dir(): string
+    function download_dir(?string $dir = null): string
     {
-        $dir = BASE_PATH . '/runtime/download/';
+        if (empty($dir)) {
+            $dir = BASE_PATH . '/runtime/download';
+        }
+
         if (! is_dir($dir)) {
             @mkdir($dir, 0777, true);
         }
 
-        return $dir;
+        return rtrim($dir, '/') . '/';
     }
 }

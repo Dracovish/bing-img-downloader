@@ -39,12 +39,18 @@ class DownloadCommand extends HyperfCommand
         parent::configure();
         $this->setDescription('Download image from bing.');
         $this->addOption('save', 'S', InputOption::VALUE_NONE, '是否保存数据');
+        $this->addOption('upload', 'U', InputOption::VALUE_NONE, '是否上传到七牛云');
+        $this->addOption('download-dir', 'D', InputOption::VALUE_OPTIONAL, '下载目录', null);
     }
 
     public function handle()
     {
-        $syncMysql = $this->input->getOption('save');
+        $save = $this->input->getOption('save');
+        $upload = $this->input->getOption('upload');
+        $dir = $this->input->getOption('download-dir');
 
-        di()->get(ImageService::class)->download($syncMysql);
+        var_dump($save, $upload, $dir);
+
+        di()->get(ImageService::class)->download($save, $upload, $dir);
     }
 }
