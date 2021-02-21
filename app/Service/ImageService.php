@@ -33,7 +33,7 @@ class ImageService extends Service
 
     public function download()
     {
-        $client = $this->factory->get('https://cn.bing.com');
+        $client = $this->factory->get();
 
         $response = $client->get('/HPImageArchive.aspx?format=js&idx=0&n=1');
 
@@ -45,10 +45,21 @@ class ImageService extends Service
                 $title = $image['title'];
                 $cdn = $this->getCdn($url);
 
-                dump($cdn);
+                $this->put($url, $cdn);
             }
             // dump($ret);
         }
+    }
+
+    public function put(string $url, string $cdn)
+    {
+        $client = $this->factory->get();
+
+        $client->get($url, [
+            'sink' => $sink = BASE_PATH . '/runtime/' . $cdn,
+        ]);
+
+        var_dump($sink);
     }
 
     public function getCdn(string $url)

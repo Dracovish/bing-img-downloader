@@ -20,7 +20,7 @@ class Client extends Service
 {
     protected $handler;
 
-    public function get(string $uri)
+    public function get(string $uri = 'https://cn.bing.com')
     {
         return new GuzzleHttpClient([
             'handler' => $this->stack(),
