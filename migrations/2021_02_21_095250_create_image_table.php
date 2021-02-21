@@ -24,7 +24,7 @@ class CreateImageTable extends Migration
             $table->bigIncrements('id');
             $table->string('title', 256);
             $table->string('url', 256);
-            $table->string('cdn', 256);
+            $table->string('cdn', 256)->unique();
             $table->string('copyright', 128);
             $table->timestamps();
         });

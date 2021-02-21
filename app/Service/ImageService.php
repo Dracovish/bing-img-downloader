@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use Hyperf\Di\Annotation\Inject;
+use Hyperf\Utils\Arr;
 use Hyperf\Utils\Codec\Json;
 use HyperfX\Utils\Service;
 
@@ -31,7 +32,24 @@ class ImageService extends Service
 
         if ($response->getStatusCode() == 200) {
             $ret = Json::decode((string) $response->getBody());
-            dump($ret);
+            foreach ($ret['images'] ?? [] as $image) {
+                $url = $image['url'];
+                $copyright = $image['copyright'];
+                $title = $image['title'];
+                $cdn = $this->getCdn($url);
+            }
+            // dump($ret);
         }
+    }
+
+    public function getCdn(string $url)
+    {
+        // /th?id=OHR.Porto_ZH-CN9117852684_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp
+        $data = parse_url($url);
+        $idStr = explode('&', $data['query'])[0];
+        $extArr = explode('.', $idStr);
+        $ext = Arr::last($extArr);
+
+        return md5($idStr) . '.' . $ext;
     }
 }
