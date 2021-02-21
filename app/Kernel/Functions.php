@@ -51,3 +51,18 @@ if (! function_exists('queue_push')) {
         return $driver->push($job, $delay);
     }
 }
+
+if (! function_exists('download_dir')) {
+    /**
+     * 返回下载目录.
+     */
+    function download_dir(): string
+    {
+        $dir = BASE_PATH . '/runtime/download/';
+        if (! is_dir($dir)) {
+            @mkdir($dir, 0777, true);
+        }
+
+        return $dir;
+    }
+}

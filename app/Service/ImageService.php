@@ -38,7 +38,7 @@ class ImageService extends Service
      */
     protected $file;
 
-    public function download()
+    public function download(bool $syncMysql = false)
     {
         $client = $this->factory->get();
 
@@ -63,7 +63,7 @@ class ImageService extends Service
         $client = $this->factory->get();
 
         $client->get($url, [
-            'sink' => $sink = BASE_PATH . '/runtime/' . $cdn,
+            'sink' => $sink = download_dir() . $cdn,
         ]);
 
         if (! $this->file->has($cdn)) {
