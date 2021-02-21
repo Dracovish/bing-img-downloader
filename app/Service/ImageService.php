@@ -51,8 +51,12 @@ class ImageService extends Service
                 $copyright = $image['copyright'];
                 $title = $image['title'];
                 $cdn = $this->put($url);
+
+                if ($syncMysql) {
+                    // 保存数据到数据库
+                    $this->dao->create($title, $url, $cdn, $copyright);
+                }
             }
-            // dump($ret);
         }
     }
 

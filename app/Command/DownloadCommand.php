@@ -15,6 +15,7 @@ use App\Service\ImageService;
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * @Command
@@ -37,10 +38,13 @@ class DownloadCommand extends HyperfCommand
     {
         parent::configure();
         $this->setDescription('Download image from bing.');
+        $this->addOption('save', 'S', InputOption::VALUE_NONE, '是否保存数据');
     }
 
     public function handle()
     {
-        di()->get(ImageService::class)->download();
+        $syncMysql = $this->input->getOption('save');
+
+        di()->get(ImageService::class)->download($syncMysql);
     }
 }

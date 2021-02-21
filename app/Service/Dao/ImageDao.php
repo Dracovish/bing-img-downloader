@@ -18,7 +18,10 @@ class ImageDao extends Service
 {
     public function create(string $title, string $url, string $cdn, string $copyright)
     {
-        $model = new Image();
+        $model = Image::query()->where('cdn', $cdn)->first();
+        if (empty($model)) {
+            $model = new Image();
+        }
         $model->title = $title;
         $model->url = $url;
         $model->cdn = $cdn;
