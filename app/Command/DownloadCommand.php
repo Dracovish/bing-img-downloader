@@ -50,5 +50,7 @@ class DownloadCommand extends HyperfCommand
         $dir = $this->input->getOption('download-dir');
 
         di()->get(ImageService::class)->download($save, $upload, $dir);
+
+        $this->output->success('当日必应壁纸下载完毕');
     }
 }
