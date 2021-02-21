@@ -1,5 +1,7 @@
 # Bing Img Downloader
 
+[![Build](https://github.com/Dracovish/bing-img-downloader/actions/workflows/build.yml/badge.svg)](https://github.com/Dracovish/bing-img-downloader/actions/workflows/build.yml)
+
 ## Feature
 
 Download image from `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1` daily.
