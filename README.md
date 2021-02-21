@@ -11,7 +11,13 @@ Download image from `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1
 - Hyperf Database Migration
 - Hyperf Phar
 
-## How to use
+## How to use bing-img-downloader.phar
+
+- PHP >= 7.4
+- Swoole PHP extension >= 4.5，and Disabled `Short Name`
+- OpenSSL PHP extension
+- JSON PHP extension
+- PDO PHP extension （If you need to use MySQL Client）
 
 ```shell
 wget https://github.com/Dracovish/bing-img-downloader/releases/download/v0.1.1/bing-img-downloader.phar
