@@ -49,8 +49,6 @@ class DownloadCommand extends HyperfCommand
         $upload = $this->input->getOption('upload');
         $dir = $this->input->getOption('download-dir');
 
-        var_dump($save, $upload, $dir);
-
         di()->get(ImageService::class)->download($save, $upload, $dir);
     }
 }
