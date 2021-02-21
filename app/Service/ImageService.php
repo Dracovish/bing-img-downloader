@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Service;
 
+use App\Service\Dao\ImageDao;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Arr;
 use Hyperf\Utils\Codec\Json;
@@ -23,6 +24,12 @@ class ImageService extends Service
      * @var Client
      */
     protected $factory;
+
+    /**
+     * @Inject
+     * @var ImageDao
+     */
+    protected $dao;
 
     public function download()
     {
