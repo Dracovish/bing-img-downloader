@@ -27,6 +27,7 @@ class CreateImageTable extends Migration
             $table->string('cdn', 256)->unique();
             $table->string('copyright', 128);
             $table->timestamps();
+            $table->comment('bing images');
         });
     }
 
