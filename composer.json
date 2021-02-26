@@ -44,7 +44,7 @@
         "hyperf/redis": "2.1.*",
         "hyperf/server": "2.1.*",
         "hyperf/utils": "2.1.*",
-        "limingxinleo/hyperf-utils": "^2.0",
+        "limingxinleo/hyperf-utils": "^3.0",
         "overtrue/flysystem-qiniu": "^1.0"
     },
     "require-dev": {

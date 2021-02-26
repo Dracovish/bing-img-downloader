@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace App\Service\Dao;
 
 use App\Model\Image;
-use HyperfX\Utils\Service;
+use Han\Utils\Service;
 
 class ImageDao extends Service
 {

@@ -15,7 +15,7 @@ use App\Service\Dao\ImageDao;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Arr;
 use Hyperf\Utils\Codec\Json;
-use HyperfX\Utils\Service;
+use Han\Utils\Service;
 use League\Flysystem\Filesystem;
 
 class ImageService extends Service

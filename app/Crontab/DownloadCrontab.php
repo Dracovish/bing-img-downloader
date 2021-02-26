@@ -15,7 +15,7 @@ use App\Service\ImageService;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Crontab\Annotation\Crontab;
 use Hyperf\Di\Annotation\Inject;
-use HyperfX\Utils\Service;
+use Han\Utils\Service;
 
 /**
  * @Crontab(name="DownloadCrontab", rule="0 1 * * *", callback="execute", memo="Download image from Bing daily.")

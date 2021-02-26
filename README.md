@@ -22,7 +22,7 @@ Download image from `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1
 - PDO PHP extension （If you need to use MySQL Client）
 
 ```shell
-wget https://github.com/Dracovish/bing-img-downloader/releases/download/v0.2.0/bing-img-downloader.phar
+wget https://github.com/Dracovish/bing-img-downloader/releases/download/v0.2.1/bing-img-downloader.phar
 
 php bing-img-downloader.phar img:download -D $PWD/bing
 ```
