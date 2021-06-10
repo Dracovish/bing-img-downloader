@@ -13,8 +13,8 @@ namespace App\Service;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\HandlerStack;
-use Hyperf\Guzzle\CoroutineHandler;
 use Han\Utils\Service;
+use Hyperf\Guzzle\CoroutineHandler;
 
 class Client extends Service
 {

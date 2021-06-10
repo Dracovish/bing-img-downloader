@@ -12,10 +12,11 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Service\Dao\ImageDao;
+use Carbon\Carbon;
+use Han\Utils\Service;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Utils\Arr;
 use Hyperf\Utils\Codec\Json;
-use Han\Utils\Service;
 use League\Flysystem\Filesystem;
 
 class ImageService extends Service
@@ -84,6 +85,6 @@ class ImageService extends Service
         $extArr = explode('.', $idStr);
         $ext = Arr::last($extArr);
 
-        return md5($idStr) . '.' . $ext;
+        return Carbon::now()->toDateString() . '.' . md5($idStr) . '.' . $ext;
     }
 }
