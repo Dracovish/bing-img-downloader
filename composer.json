@@ -38,7 +38,7 @@
         "hyperf/http-server": "2.2.*",
         "hyperf/logger": "2.2.*",
         "hyperf/model-cache": "2.2.*",
-        "hyperf/phar": " 2.2.*",
+        "hyperf/phar": "2.2.x-dev",
         "hyperf/pool": "2.2.*",
         "hyperf/process": "2.2.*",
         "hyperf/redis": "2.2.*",
