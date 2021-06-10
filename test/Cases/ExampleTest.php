@@ -14,10 +14,8 @@ namespace HyperfTest\Cases;
 use App\Kernel\Context\Coroutine;
 use App\Kernel\Log\AppendRequestIdProcessor;
 use Hyperf\Engine\Channel;
-use Hyperf\HttpMessage\Server\Request;
 use Hyperf\Utils\Context;
 use HyperfTest\HttpTestCase;
-use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * @internal
@@ -61,8 +59,6 @@ class ExampleTest extends HttpTestCase
 
         $data = $pool->pop();
         $this->assertIsArray($data);
-        $this->assertTrue(count($data) === 2);
         $this->assertSame($id, $data[AppendRequestIdProcessor::REQUEST_ID]);
-        $this->assertInstanceOf(Request::class, $data[ServerRequestInterface::class]);
     }
 }
